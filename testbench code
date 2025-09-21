@@ -1,0 +1,20 @@
+// Code your testbench here
+// or browse Examples
+module tb;
+  reg [3:0] digit;
+  reg rst;
+  wire [6:0] seg;
+  seven_segment dut(.rst(rst),.digit(digit),.seg(seg));
+  initial begin
+    $monitor("time=%0t | rst=%b | digit=%h | seg=%b", $time, rst, digit, seg);
+    rst=1;
+    #10 rst=0;
+    #10 digit=4'h1;
+    #10 digit=4'h2;
+    #10 digit=4'h3;
+    #10 digit=4'h4;
+    #10 digit=4'h5;
+    #100 
+    $finish;
+  end
+endmodule
